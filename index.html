@@ -8,29 +8,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0c1120;
-      --surface: #111827;
-      --surface-2: #162035;
-      --surface-hover: #1c2844;
-      --accent: #6366f1;
-      --accent-light: #818cf8;
-      --accent-dim: rgba(99, 102, 241, 0.1);
-      --accent-border: rgba(99, 102, 241, 0.25);
-      --green: #10b981;
-      --green-dim: rgba(16, 185, 129, 0.1);
-      --green-border: rgba(16, 185, 129, 0.28);
-      --text-primary: #f1f5f9;
-      --text-secondary: #94a3b8;
-      --text-muted: #64748b;
-      --border: rgba(255, 255, 255, 0.07);
-      --border-strong: rgba(255, 255, 255, 0.11);
+      --bg: #F8FAFC;
+      --surface: #FFFFFF;
+      --surface-muted: #FAFBFC;
+      --border: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --text-900: #0F172A;
+      --text-700: #334155;
+      --text-600: #475569;
+      --text-500: #64748B;
+      --text-400: #94A3B8;
+      --accent: #4338CA;
+      --accent-mid: #6366F1;
+      --accent-bg: #EEF2FF;
+      --accent-border: #C7D2FE;
+      --emerald: #065F46;
+      --emerald-bg: #ECFDF5;
+      --emerald-border: #A7F3D0;
+      --emerald-dot: #10B981;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background: var(--bg);
-      color: var(--text-secondary);
+      color: var(--text-600);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
       font-size: 15px;
@@ -42,75 +44,64 @@
     .container {
       max-width: 1160px;
       margin: 0 auto;
-      padding: 56px 32px 80px;
+      padding: 48px 32px 72px;
     }
 
     /* ── HEADER ── */
     header {
       background: var(--surface);
-      border: 1px solid var(--border-strong);
-      border-radius: 16px;
-      padding: 52px 56px 44px;
-      margin-bottom: 16px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: -80px; left: -80px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 65%);
-      pointer-events: none;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 48px 52px 40px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.03);
     }
 
     .eyebrow {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       font-weight: 500;
-      letter-spacing: 0.14em;
-      color: var(--accent-light);
+      letter-spacing: 0.13em;
+      color: var(--text-400);
       text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .name {
-      font-size: clamp(36px, 5.5vw, 62px);
+      font-size: clamp(36px, 5vw, 58px);
       font-weight: 800;
-      color: var(--text-primary);
-      letter-spacing: -0.03em;
+      color: var(--text-900);
+      letter-spacing: -0.035em;
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .role-line {
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--text-muted);
-      margin-bottom: 36px;
+      font-size: 15px;
+      color: var(--text-500);
+      margin-bottom: 32px;
     }
 
     .role-line strong {
-      color: var(--text-secondary);
-      font-weight: 500;
+      color: var(--text-700);
+      font-weight: 600;
     }
 
     .meta-row {
       display: flex;
       flex-wrap: wrap;
-      margin-bottom: 32px;
       border: 1px solid var(--border);
       border-radius: 8px;
       overflow: hidden;
       width: fit-content;
+      margin-bottom: 28px;
     }
 
     .meta-item {
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 20px;
+      padding: 9px 18px;
       border-right: 1px solid var(--border);
     }
 
@@ -121,20 +112,20 @@
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--text-400);
     }
 
     .meta-value {
       font-size: 12.5px;
       font-weight: 500;
-      color: var(--text-secondary);
+      color: var(--text-700);
     }
 
     .status-strip {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      padding-top: 28px;
+      padding-top: 24px;
       border-top: 1px solid var(--border);
     }
 
@@ -142,19 +133,30 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: var(--green-dim);
-      border: 1px solid var(--green-border);
       border-radius: 100px;
-      padding: 5px 14px;
+      padding: 5px 13px;
       font-size: 12px;
       font-weight: 500;
-      color: var(--green);
+      border: 1px solid;
+    }
+
+    .status-badge.active {
+      background: var(--emerald-bg);
+      border-color: var(--emerald-border);
+      color: var(--emerald);
+    }
+
+    .status-badge.neutral {
+      background: var(--bg);
+      border-color: var(--border);
+      color: var(--text-600);
     }
 
     .status-dot {
-      width: 6px; height: 6px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      background: var(--green);
+      background: var(--emerald-dot);
       flex-shrink: 0;
       animation: pulse 2s ease-in-out infinite;
     }
@@ -168,34 +170,35 @@
     .stat-strip {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-      margin-bottom: 16px;
+      gap: 10px;
+      margin-bottom: 10px;
     }
 
     .stat-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px 20px;
+      border-radius: 10px;
+      padding: 22px 20px;
       text-align: center;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
     }
 
     .stat-number {
       font-size: clamp(28px, 3vw, 38px);
       font-weight: 800;
-      color: var(--text-primary);
-      letter-spacing: -0.03em;
+      color: var(--text-900);
+      letter-spacing: -0.04em;
       line-height: 1;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
 
-    .stat-number .accent { color: var(--accent-light); }
+    .stat-number .accent { color: var(--accent); }
 
     .stat-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      color: var(--text-400);
       text-transform: uppercase;
     }
 
@@ -203,163 +206,165 @@
     .col-labels {
       display: grid;
       grid-template-columns: 42% 58%;
-      padding: 16px 28px 10px;
+      padding: 14px 24px 8px;
     }
 
     .col-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px;
       font-weight: 500;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--text-400);
     }
 
     .col-label.right {
-      color: var(--accent-light);
-      padding-left: 32px;
+      color: var(--accent);
+      padding-left: 28px;
     }
 
     /* ── CARDS ── */
     .cards {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      margin-bottom: 40px;
+      gap: 6px;
+      margin-bottom: 36px;
     }
 
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 10px;
       display: grid;
       grid-template-columns: 42% 58%;
       overflow: hidden;
-      transition: border-color 0.18s ease, background 0.18s ease;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
     .card:hover {
       border-color: var(--border-strong);
-      background: var(--surface-2);
+      box-shadow: 0 3px 10px rgba(15, 23, 42, 0.07);
     }
 
     .card-left {
-      padding: 28px 28px;
+      padding: 22px 24px;
       border-right: 1px solid var(--border);
+      background: var(--surface-muted);
     }
 
     .card-right {
-      padding: 28px 32px;
+      padding: 22px 28px;
     }
 
     .category-tag {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px;
       font-weight: 500;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--accent-light);
-      background: var(--accent-dim);
-      border: 1px solid var(--accent-border);
+      color: var(--text-600);
+      background: #F1F5F9;
+      border: 1px solid var(--border);
       border-radius: 4px;
-      padding: 4px 10px;
-      margin-bottom: 14px;
+      padding: 3px 9px;
+      margin-bottom: 12px;
     }
 
     .requirement-text {
-      font-size: 13.5px;
+      font-size: 13px;
       line-height: 1.72;
-      color: var(--text-muted);
+      color: var(--text-500);
     }
 
     .response-text {
-      font-size: 14.5px;
+      font-size: 14px;
       line-height: 1.76;
-      color: var(--text-secondary);
+      color: var(--text-700);
     }
 
     .hi {
-      color: var(--text-primary);
+      color: var(--text-900);
       font-weight: 600;
     }
 
     .stat {
       display: inline-block;
-      background: var(--accent-dim);
-      color: var(--accent-light);
+      background: var(--accent-bg);
+      color: var(--accent);
       font-weight: 700;
-      border-radius: 4px;
-      padding: 1px 7px;
+      border: 1px solid var(--accent-border);
+      border-radius: 3px;
+      padding: 0 6px;
       font-size: 13.5px;
     }
 
     .emp {
-      color: var(--text-primary);
+      color: var(--text-900);
       font-style: italic;
       font-weight: 600;
+    }
+
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      font-weight: 500;
+      background: #F1F5F9;
+      color: #1E293B;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
     }
 
     /* ── FOOTER ── */
     footer {
       background: var(--surface);
-      border: 1px solid var(--border-strong);
+      border: 1px solid var(--border);
       border-top: 2px solid var(--accent);
-      border-radius: 16px;
-      padding: 52px 56px;
+      border-radius: 10px;
+      padding: 48px 52px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    footer::after {
-      content: '';
-      position: absolute;
-      bottom: -80px; right: -80px;
-      width: 320px; height: 320px;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 65%);
-      pointer-events: none;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
     }
 
     .footer-eyebrow {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      color: var(--accent-light);
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      color: var(--text-400);
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .footer-headline {
       font-size: clamp(22px, 3vw, 34px);
       font-weight: 800;
-      color: var(--text-primary);
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 16px;
+      color: var(--text-900);
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
     }
 
     .footer-sub {
       font-size: 15px;
-      color: var(--text-muted);
+      color: var(--text-500);
     }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 800px) {
-      .container { padding: 24px 16px 56px; }
-      header { padding: 36px 28px 28px; }
+      .container { padding: 20px 16px 52px; }
+      header { padding: 32px 24px 24px; }
       .meta-row { width: 100%; flex-direction: column; }
       .meta-item { border-right: none; border-bottom: 1px solid var(--border); }
       .meta-item:last-child { border-bottom: none; }
       .stat-strip { grid-template-columns: repeat(3, 1fr); }
-      .stat-strip .stat-card:nth-child(4),
-      .stat-strip .stat-card:nth-child(5) { grid-column: span 1; }
       .col-labels { display: none; }
       .card { grid-template-columns: 1fr; }
       .card-left { border-right: none; border-bottom: 1px solid var(--border); }
-      footer { padding: 36px 28px; }
+      footer { padding: 32px 24px; }
     }
   </style>
 </head>
@@ -392,13 +397,13 @@
     </div>
 
     <div class="status-strip">
-      <div class="status-badge">
+      <div class="status-badge active">
         <div class="status-dot"></div>
         Available Immediately
       </div>
-      <div class="status-badge">No Visa Required</div>
-      <div class="status-badge">Fully Remote</div>
-      <div class="status-badge">Background Check Accepted</div>
+      <div class="status-badge neutral">No Visa Required</div>
+      <div class="status-badge neutral">Fully Remote</div>
+      <div class="status-badge neutral">Background Check Accepted</div>
     </div>
   </header>
 
@@ -441,7 +446,7 @@
         <p class="requirement-text">Validate and reconcile buyer data across questionnaires, profiles, and AI agents. Audit for completeness, resolve missing fields and data mismatches before they reach matching outputs. Leverage agentic audits for zero data issues.</p>
       </div>
       <div class="card-right">
-        <p class="response-text">At <span class="hi">PIMCO</span>, owns compliance monitoring across <span class="stat">100+ US &amp; European portfolios</span>, processing <span class="stat">10,000+ annual exceptions</span> as the top performer on the team. Spearheaded quarterly breach analytics using <span class="hi">SQL</span> to identify patterns across all portfolios, automating <span class="stat">1,000+ rule triggers</span> and reducing violations by <span class="stat">20%</span>. At <span class="hi">Protiviti</span>, tested <span class="stat">300+ financial controls</span> across SOX compliance engagements — built to catch exactly what others miss.</p>
+        <p class="response-text">At <span class="hi">PIMCO</span>, owns compliance monitoring across <span class="stat">100+ US &amp; European portfolios</span>, processing <span class="stat">10,000+ annual exceptions</span> as the top performer on the team. Spearheaded quarterly breach analytics using <span class="badge">SQL</span> to identify patterns across all portfolios, automating <span class="stat">1,000+ rule triggers</span> and reducing violations by <span class="stat">20%</span>. At <span class="hi">Protiviti</span>, tested <span class="stat">300+ financial controls</span> across SOX compliance engagements — built to catch exactly what others miss.</p>
       </div>
     </div>
 
@@ -451,7 +456,7 @@
         <p class="requirement-text">Monitor and audit AI-generated matching outputs, ranks, and reasoning against known buyer criteria. Diagnose root causes of discrepancies. Develop validation logic that stress-tests AI agent outputs against ground-truth data.</p>
       </div>
       <div class="card-right">
-        <p class="response-text">Hands-on builder of <span class="hi">production AI agent pipelines</span> using <span class="hi">Claude Code + n8n</span> — has designed, tested, and debugged multi-step agentic workflows end-to-end, including signal ingestion and fund-matching logic. Understands how LLM outputs fail silently and how to build validation layers around them. At PIMCO, partnered directly with technology teams to diagnose root causes and implement fixes — not just flagging issues, but owning resolution.</p>
+        <p class="response-text">Hands-on builder of <span class="hi">production AI agent pipelines</span> using <span class="badge">Claude Code</span> + <span class="badge">n8n</span> — has designed, tested, and debugged multi-step agentic workflows end-to-end, including signal ingestion and fund-matching logic. Understands how LLM outputs fail silently and how to build validation layers around them. At PIMCO, partnered directly with technology teams to diagnose root causes and implement fixes — not just flagging issues, but owning resolution.</p>
       </div>
     </div>
 
@@ -461,7 +466,7 @@
         <p class="requirement-text">Turn raw buyer data into actionable insights by surfacing patterns, anomalies, and quality signals for leadership. Build and maintain reporting and monitoring tools for real-time visibility into data health.</p>
       </div>
       <div class="card-right">
-        <p class="response-text">Built an <span class="hi">automated breach reporting tool</span> at PIMCO that eliminated manual data extraction, cutting monthly reporting time by <span class="stat">50%</span>. Transformed unstructured depositary email threads into a centralized tracking system with categorized exceptions, reducing resolution time by <span class="stat">40%</span>. SQL-driven anomaly detection is a daily practice, not a project skill — this is core workflow at one of the world's largest asset managers.</p>
+        <p class="response-text">Built an <span class="hi">automated breach reporting tool</span> at PIMCO that eliminated manual data extraction, cutting monthly reporting time by <span class="stat">50%</span>. Transformed unstructured depositary email threads into a centralized tracking system with categorized exceptions, reducing resolution time by <span class="stat">40%</span>. <span class="badge">SQL</span>-driven anomaly detection is a daily practice, not a project skill — this is core workflow at one of the world's largest asset managers.</p>
       </div>
     </div>
 
@@ -491,7 +496,7 @@
         <p class="requirement-text">Identify manual or inefficient data processes and propose automation using AI agents, scripts, or workflow tooling. Collaborate with AI platform engineers to improve pipelines. Support product innovation beyond current capabilities.</p>
       </div>
       <div class="card-right">
-        <p class="response-text">Currently building <span class="hi">production AI agent pipelines</span> independently — designing signal ingestion, fund data enrichment, and matching workflows using n8n orchestration and Claude Code. This isn't a hobby: it's a functional, deployed system built from scratch. At Newchip, built the entire <span class="hi">HubSpot CRM + Airtable deal pipeline</span> including automated outbound campaigns and investor database of <span class="stat">1,000+ categorized startups</span> that became the team standard. Automation is the default approach, not the last resort.</p>
+        <p class="response-text">Currently building <span class="hi">production AI agent pipelines</span> independently — designing signal ingestion, fund data enrichment, and matching workflows using <span class="badge">n8n</span> orchestration and <span class="badge">Claude Code</span>. This isn't a hobby: it's a functional, deployed system built from scratch. At Newchip, built the entire <span class="badge">HubSpot</span> CRM + <span class="badge">Airtable</span> deal pipeline including automated outbound campaigns and investor database of <span class="stat">1,000+ categorized startups</span> that became the team standard. Automation is the default approach, not the last resort.</p>
       </div>
     </div>
 
@@ -501,7 +506,7 @@
         <p class="requirement-text">Develop deep mastery of Alaris Lens and AI platform as primary systems of record. Advanced Excel and spreadsheet proficiency: pivot tables, Power Query, XLOOKUP, data modeling.</p>
       </div>
       <div class="card-right">
-        <p class="response-text">Advanced Excel applied daily across Protiviti audit engagements and PIMCO compliance workflows — complex exception models, financial control matrices, and cross-portfolio tracking. Rapid learner of proprietary platforms: at PIMCO, became the primary operator of the compliance monitoring system; at Newchip, owned the full CRM and pipeline stack with zero prior HubSpot experience. Mastery of new systems is a pattern, not a one-off.</p>
+        <p class="response-text">Advanced <span class="badge">Excel</span> applied daily across Protiviti audit engagements and PIMCO compliance workflows — complex exception models, financial control matrices, and cross-portfolio tracking. Rapid learner of proprietary platforms: at PIMCO, became the primary operator of the compliance monitoring system; at Newchip, owned the full <span class="badge">HubSpot</span> CRM and pipeline stack with zero prior experience. Mastery of new systems is a pattern, not a one-off.</p>
       </div>
     </div>
 
@@ -517,11 +522,11 @@
 
     <div class="card">
       <div class="card-left">
-        <span class="category-tag">AI &amp; LLM Experience &nbsp;<span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-muted);font-weight:400;letter-spacing:0.05em">(Nice to Have)</span></span>
+        <span class="category-tag">AI &amp; LLM Experience &nbsp;<span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-400);font-weight:400;letter-spacing:0.05em">(Nice to Have)</span></span>
         <p class="requirement-text">Hands-on experience with AI agents or LLM-based workflows (OpenAI, Anthropic, Google). Familiarity with AI platform implementation. Python or scripting experience for data pipeline automation.</p>
       </div>
       <div class="card-right">
-        <p class="response-text"><span class="emp">This is not a nice-to-have — it's a core strength.</span> Currently operating <span class="hi">Claude Code</span> (Anthropic) as a primary development environment and building multi-agent orchestration pipelines with <span class="hi">n8n</span>. Has direct, production-grade experience designing agentic workflows, prompt engineering, debugging LLM outputs, and managing data pipelines powered by AI. This is the rarest qualification on this job description — and arguably the one most critical to Alaris's roadmap. Millet brings it today, not after a ramp.</p>
+        <p class="response-text"><span class="emp">This is not a nice-to-have — it's a core strength.</span> Currently operating <span class="badge">Claude Code</span> (Anthropic) as a primary development environment and building multi-agent orchestration pipelines with <span class="badge">n8n</span>. Has direct, production-grade experience designing agentic workflows, prompt engineering, debugging LLM outputs, and managing data pipelines powered by AI. This is the rarest qualification on this job description — and arguably the one most critical to Alaris's roadmap. Millet brings it today, not after a ramp.</p>
       </div>
     </div>
 
