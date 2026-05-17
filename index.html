@@ -5,288 +5,361 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Millet Gilmore — Alaris Acquisitions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #080810;
-      --surface: #0d0d1a;
-      --green: #00ff88;
-      --green-dim: #00cc66;
-      --green-glow: rgba(0, 255, 136, 0.08);
-      --cyan: #00d4ff;
-      --amber: #ffaa00;
-      --text: #b8dfc8;
-      --text-dim: #5a7a6a;
-      --border: rgba(0, 255, 136, 0.15);
+      --bg: #0c1120;
+      --surface: #111827;
+      --surface-2: #162035;
+      --surface-hover: #1c2844;
+      --accent: #6366f1;
+      --accent-light: #818cf8;
+      --accent-dim: rgba(99, 102, 241, 0.1);
+      --accent-border: rgba(99, 102, 241, 0.25);
+      --green: #10b981;
+      --green-dim: rgba(16, 185, 129, 0.1);
+      --green-border: rgba(16, 185, 129, 0.28);
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-strong: rgba(255, 255, 255, 0.11);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background: var(--bg);
-      color: var(--text);
-      font-family: 'Share Tech Mono', 'Courier New', monospace;
+      color: var(--text-secondary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* Scanlines */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 3px,
-        rgba(0, 0, 0, 0.04) 3px,
-        rgba(0, 0, 0, 0.04) 4px
-      );
-      pointer-events: none;
-      z-index: 100;
-    }
-
-    /* Grid */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0, 255, 136, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 136, 0.025) 1px, transparent 1px);
-      background-size: 48px 48px;
-      pointer-events: none;
-      z-index: 0;
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .container {
-      position: relative;
-      z-index: 1;
-      max-width: 1140px;
+      max-width: 1160px;
       margin: 0 auto;
-      padding: 48px 24px 60px;
+      padding: 56px 32px 80px;
     }
 
     /* ── HEADER ── */
     header {
-      border: 1px solid var(--green-dim);
-      padding: 44px 44px 36px;
-      margin-bottom: 44px;
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 16px;
+      padding: 52px 56px 44px;
+      margin-bottom: 16px;
       position: relative;
-      background: linear-gradient(135deg, rgba(0,255,136,0.03) 0%, transparent 60%);
+      overflow: hidden;
     }
 
     header::before {
-      content: '// CANDIDATE BRIEF v2026';
+      content: '';
       position: absolute;
-      top: -11px;
-      left: 24px;
-      background: var(--bg);
-      padding: 0 12px;
-      color: var(--text-dim);
-      font-size: 10px;
-      letter-spacing: 3px;
+      top: -80px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 65%);
+      pointer-events: none;
     }
 
-    .corner {
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      border-color: var(--green);
-      border-style: solid;
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
-    .tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
-    .tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
-    .bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
-    .br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
 
     .name {
-      font-family: 'Orbitron', monospace;
-      font-size: clamp(30px, 5.5vw, 58px);
-      font-weight: 900;
-      color: var(--green);
-      text-shadow: 0 0 24px var(--green), 0 0 60px rgba(0,255,136,0.25);
-      letter-spacing: 5px;
-      line-height: 1.1;
+      font-size: clamp(36px, 5.5vw, 62px);
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
       margin-bottom: 10px;
     }
 
     .role-line {
-      color: var(--cyan);
-      font-size: 12px;
-      letter-spacing: 2px;
-      margin-bottom: 28px;
-      opacity: 0.85;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+    }
+
+    .role-line strong {
+      color: var(--text-secondary);
+      font-weight: 500;
     }
 
     .meta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 28px;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      width: fit-content;
     }
 
     .meta-item {
-      font-size: 11px;
-      color: var(--text-dim);
-      letter-spacing: 1px;
-    }
-
-    .meta-item span {
-      color: var(--green-dim);
-      margin-left: 6px;
-    }
-
-    .status-bar {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(0,255,136,0.08);
-      font-size: 10px;
-      color: var(--text-dim);
-      letter-spacing: 1.5px;
+      gap: 8px;
+      padding: 10px 20px;
+      border-right: 1px solid var(--border);
     }
 
-    .dot {
-      width: 8px;
-      height: 8px;
+    .meta-item:last-child { border-right: none; }
+
+    .meta-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .meta-value {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .status-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--green-dim);
+      border: 1px solid var(--green-border);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--green);
+    }
+
+    .status-dot {
+      width: 6px; height: 6px;
       border-radius: 50%;
       background: var(--green);
-      box-shadow: 0 0 10px var(--green);
       flex-shrink: 0;
       animation: pulse 2s ease-in-out infinite;
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--green); }
-      50%       { opacity: 0.4; box-shadow: 0 0 4px var(--green); }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
     }
 
-    /* ── SECTION LABEL ── */
-    .section-label {
-      font-size: 9px;
-      letter-spacing: 4px;
-      color: var(--text-dim);
+    /* ── STAT STRIP ── */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
       margin-bottom: 16px;
-      padding-left: 2px;
     }
 
-    /* ── TABLE ── */
-    .match-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 44px;
-    }
-
-    .match-table thead th {
-      font-family: 'Orbitron', monospace;
-      font-size: 9px;
-      letter-spacing: 3px;
-      text-align: left;
-      padding: 14px 22px;
-      border-bottom: 1px solid var(--green-dim);
-    }
-
-    .match-table thead th:first-child {
-      color: var(--text-dim);
-      width: 42%;
-    }
-
-    .match-table thead th:last-child {
-      color: var(--green);
-    }
-
-    .match-table tbody tr {
-      border-bottom: 1px solid rgba(0,255,136,0.05);
-      transition: background 0.2s ease;
-    }
-
-    .match-table tbody tr:hover {
-      background: var(--green-glow);
-    }
-
-    .match-table td {
-      padding: 26px 22px;
-      vertical-align: top;
-      font-size: 13px;
-      line-height: 1.75;
-    }
-
-    .match-table td:first-child {
-      color: var(--text-dim);
-      border-right: 1px solid rgba(0,255,136,0.07);
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    .row-tag {
-      display: inline-block;
-      font-family: 'Orbitron', monospace;
-      font-size: 8px;
-      letter-spacing: 2px;
-      color: var(--green);
-      background: rgba(0,255,136,0.07);
-      border: 1px solid rgba(0,255,136,0.2);
-      padding: 3px 10px;
-      margin-bottom: 12px;
-    }
-
-    .hi   { color: var(--green); }
-    .stat { color: var(--amber); }
-    .emp  { color: var(--cyan); font-style: italic; }
-
-    /* ── FOOTER ── */
-    footer {
-      border: 1px solid rgba(0,255,136,0.25);
-      padding: 40px 44px;
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 20px;
       text-align: center;
-      position: relative;
-      background: linear-gradient(135deg, rgba(0,255,136,0.03) 0%, transparent 60%);
     }
 
-    footer::before {
-      content: '// CLOSING STATEMENT';
-      position: absolute;
-      top: -11px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--bg);
-      padding: 0 14px;
-      color: var(--text-dim);
-      font-size: 9px;
-      letter-spacing: 3px;
-      white-space: nowrap;
+    .stat-number {
+      font-size: clamp(28px, 3vw, 38px);
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 8px;
     }
 
-    .footer-headline {
-      font-family: 'Orbitron', monospace;
-      font-size: clamp(14px, 2.5vw, 22px);
-      color: var(--green);
-      text-shadow: 0 0 20px rgba(0,255,136,0.4);
-      letter-spacing: 3px;
+    .stat-number .accent { color: var(--accent-light); }
+
+    .stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* ── COLUMN LABELS ── */
+    .col-labels {
+      display: grid;
+      grid-template-columns: 42% 58%;
+      padding: 16px 28px 10px;
+    }
+
+    .col-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .col-label.right {
+      color: var(--accent-light);
+      padding-left: 32px;
+    }
+
+    /* ── CARDS ── */
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: grid;
+      grid-template-columns: 42% 58%;
+      overflow: hidden;
+      transition: border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-strong);
+      background: var(--surface-2);
+    }
+
+    .card-left {
+      padding: 28px 28px;
+      border-right: 1px solid var(--border);
+    }
+
+    .card-right {
+      padding: 28px 32px;
+    }
+
+    .category-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 4px 10px;
       margin-bottom: 14px;
     }
 
-    .cursor {
-      display: inline-block;
-      width: 12px;
-      height: 2px;
-      background: var(--green);
-      margin-left: 6px;
-      vertical-align: middle;
-      animation: blink 1s step-end infinite;
+    .requirement-text {
+      font-size: 13.5px;
+      line-height: 1.72;
+      color: var(--text-muted);
     }
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0; }
+    .response-text {
+      font-size: 14.5px;
+      line-height: 1.76;
+      color: var(--text-secondary);
+    }
+
+    .hi {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .stat {
+      display: inline-block;
+      background: var(--accent-dim);
+      color: var(--accent-light);
+      font-weight: 700;
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 13.5px;
+    }
+
+    .emp {
+      color: var(--text-primary);
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-top: 2px solid var(--accent);
+      border-radius: 16px;
+      padding: 52px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .footer-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-headline {
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 16px;
     }
 
     .footer-sub {
-      font-size: 12px;
-      color: var(--text-dim);
-      letter-spacing: 1px;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 800px) {
+      .container { padding: 24px 16px 56px; }
+      header { padding: 36px 28px 28px; }
+      .meta-row { width: 100%; flex-direction: column; }
+      .meta-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .meta-item:last-child { border-bottom: none; }
+      .stat-strip { grid-template-columns: repeat(3, 1fr); }
+      .stat-strip .stat-card:nth-child(4),
+      .stat-strip .stat-card:nth-child(5) { grid-column: span 1; }
+      .col-labels { display: none; }
+      .card { grid-template-columns: 1fr; }
+      .card-left { border-right: none; border-bottom: 1px solid var(--border); }
+      footer { padding: 36px 28px; }
     }
   </style>
 </head>
@@ -295,139 +368,169 @@
 
   <!-- HEADER -->
   <header>
-    <div class="corner tl"></div>
-    <div class="corner tr"></div>
-    <div class="corner bl"></div>
-    <div class="corner br"></div>
-
-    <div class="name">MILLET GILMORE</div>
-    <div class="role-line">// APPLYING FOR: DATA &amp; AI QUALITY ANALYST &mdash; ALARIS ACQUISITIONS</div>
+    <div class="eyebrow">Candidate Brief &middot; Alaris Acquisitions</div>
+    <div class="name">Millet Gilmore</div>
+    <div class="role-line">Applying for: <strong>Data &amp; AI Quality Analyst &mdash; Alaris Acquisitions</strong></div>
 
     <div class="meta-row">
-      <div class="meta-item">LOCATION <span>Austin, TX</span></div>
-      <div class="meta-item">EMAIL <span>milletgilmore@gmail.com</span></div>
-      <div class="meta-item">PHONE <span>469-426-6599</span></div>
-      <div class="meta-item">LINKEDIN <span>linkedin.com/in/milletgilmore</span></div>
+      <div class="meta-item">
+        <span class="meta-label">Location</span>
+        <span class="meta-value">Austin, TX</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Email</span>
+        <span class="meta-value">milletgilmore@gmail.com</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Phone</span>
+        <span class="meta-value">469-426-6599</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">LinkedIn</span>
+        <span class="meta-value">linkedin.com/in/milletgilmore</span>
+      </div>
     </div>
 
-    <div class="status-bar">
-      <div class="dot"></div>
-      <span>AVAILABLE IMMEDIATELY &nbsp;&bull;&nbsp; NO VISA REQUIRED &nbsp;&bull;&nbsp; FULLY REMOTE &nbsp;&bull;&nbsp; BACKGROUND CHECK: ACCEPTED</span>
+    <div class="status-strip">
+      <div class="status-badge">
+        <div class="status-dot"></div>
+        Available Immediately
+      </div>
+      <div class="status-badge">No Visa Required</div>
+      <div class="status-badge">Fully Remote</div>
+      <div class="status-badge">Background Check Accepted</div>
     </div>
   </header>
 
-  <!-- TABLE -->
-  <div class="section-label">// REQUIREMENT MATCH MATRIX &mdash; ALARIS LENS DATA &amp; AI QUALITY ANALYST</div>
+  <!-- STAT STRIP -->
+  <div class="stat-strip">
+    <div class="stat-card">
+      <div class="stat-number">10<span class="accent">k+</span></div>
+      <div class="stat-label">Annual Exceptions</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">50<span class="accent">%</span></div>
+      <div class="stat-label">Reporting Time Cut</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">20<span class="accent">%</span></div>
+      <div class="stat-label">Violation Reduction</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">5<span class="accent">+</span></div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">3.87</div>
+      <div class="stat-label">Finance GPA &middot; OU</div>
+    </div>
+  </div>
 
-  <table class="match-table">
-    <thead>
-      <tr>
-        <th>THE ROLE REQUIRES</th>
-        <th>WHAT MILLET BRINGS</th>
-      </tr>
-    </thead>
-    <tbody>
+  <!-- COLUMN LABELS -->
+  <div class="col-labels">
+    <div class="col-label">The Role Requires</div>
+    <div class="col-label right">What Millet Brings</div>
+  </div>
 
-      <tr>
-        <td>
-          <div class="row-tag">DATA VALIDATION &amp; RECONCILIATION</div>
-          Validate and reconcile buyer data across questionnaires, profiles, and AI agents. Audit for completeness, resolve missing fields and data mismatches before they reach matching outputs. Leverage agentic audits for zero data issues.
-        </td>
-        <td>
-          At <span class="hi">PIMCO</span>, owns compliance monitoring across <span class="stat">100+ US &amp; European portfolios</span>, processing <span class="stat">10,000+ annual exceptions</span> as the top performer on the team. Spearheaded quarterly breach analytics using <span class="hi">SQL</span> to identify patterns across all portfolios, automating <span class="stat">1,000+ rule triggers</span> and reducing violations by <span class="stat">20%</span>. At <span class="hi">Protiviti</span>, tested <span class="stat">300+ financial controls</span> across SOX compliance engagements — built to catch exactly what others miss.
-        </td>
-      </tr>
+  <!-- CARDS -->
+  <div class="cards">
 
-      <tr>
-        <td>
-          <div class="row-tag">MATCHING ACCURACY</div>
-          Monitor and audit AI-generated matching outputs, ranks, and reasoning against known buyer criteria. Diagnose root causes of discrepancies. Develop validation logic that stress-tests AI agent outputs against ground-truth data.
-        </td>
-        <td>
-          Hands-on builder of <span class="hi">production AI agent pipelines</span> using <span class="hi">Claude Code + n8n</span> — has designed, tested, and debugged multi-step agentic workflows end-to-end, including signal ingestion and fund-matching logic. Understands how LLM outputs fail silently and how to build validation layers around them. At PIMCO, partnered directly with technology teams to diagnose root causes and implement fixes — not just flagging issues, but owning resolution.
-        </td>
-      </tr>
+    <div class="card">
+      <div class="card-left">
+        <span class="category-tag">Data Validation &amp; Reconciliation</span>
+        <p class="requirement-text">Validate and reconcile buyer data across questionnaires, profiles, and AI agents. Audit for completeness, resolve missing fields and data mismatches before they reach matching outputs. Leverage agentic audits for zero data issues.</p>
+      </div>
+      <div class="card-right">
+        <p class="response-text">At <span class="hi">PIMCO</span>, owns compliance monitoring across <span class="stat">100+ US &amp; European portfolios</span>, processing <span class="stat">10,000+ annual exceptions</span> as the top performer on the team. Spearheaded quarterly breach analytics using <span class="hi">SQL</span> to identify patterns across all portfolios, automating <span class="stat">1,000+ rule triggers</span> and reducing violations by <span class="stat">20%</span>. At <span class="hi">Protiviti</span>, tested <span class="stat">300+ financial controls</span> across SOX compliance engagements — built to catch exactly what others miss.</p>
+      </div>
+    </div>
 
-      <tr>
-        <td>
-          <div class="row-tag">DATA ANALYSIS &amp; INTERPRETATION</div>
-          Turn raw buyer data into actionable insights by surfacing patterns, anomalies, and quality signals for leadership. Build and maintain reporting and monitoring tools for real-time visibility into data health.
-        </td>
-        <td>
-          Built an <span class="hi">automated breach reporting tool</span> at PIMCO that eliminated manual data extraction, cutting monthly reporting time by <span class="stat">50%</span>. Transformed unstructured depositary email threads into a centralized tracking system with categorized exceptions, reducing resolution time by <span class="stat">40%</span>. SQL-driven anomaly detection is a daily practice, not a project skill — this is core workflow at one of the world's largest asset managers.
-        </td>
-      </tr>
+    <div class="card">
+      <div class="card-left">
+        <span class="category-tag">Matching Accuracy</span>
+        <p class="requirement-text">Monitor and audit AI-generated matching outputs, ranks, and reasoning against known buyer criteria. Diagnose root causes of discrepancies. Develop validation logic that stress-tests AI agent outputs against ground-truth data.</p>
+      </div>
+      <div class="card-right">
+        <p class="response-text">Hands-on builder of <span class="hi">production AI agent pipelines</span> using <span class="hi">Claude Code + n8n</span> — has designed, tested, and debugged multi-step agentic workflows end-to-end, including signal ingestion and fund-matching logic. Understands how LLM outputs fail silently and how to build validation layers around them. At PIMCO, partnered directly with technology teams to diagnose root causes and implement fixes — not just flagging issues, but owning resolution.</p>
+      </div>
+    </div>
 
-      <tr>
-        <td>
-          <div class="row-tag">BUYER DATA AUDIT OWNERSHIP</div>
-          Own all buyer data audits end-to-end: scoping, execution, findings, and remediation. Document data definitions, lineage, and ownership standards. Standardize audit workflows to reduce manual effort.
-        </td>
-        <td>
-          At <span class="hi">Protiviti</span>, led SOX compliance audits end-to-end across <span class="stat">6 client engagements</span> in banking, construction, and media — scoping, fieldwork, findings, and remediation recommendations delivered directly to client finance and operations leadership. Developed the control documentation and process definitions used post-engagement. At PIMCO, owns the quarterly breach audit lifecycle from identification through resolution. Full-cycle ownership is the default mode.
-        </td>
-      </tr>
+    <div class="card">
+      <div class="card-left">
+        <span class="category-tag">Data Analysis &amp; Interpretation</span>
+        <p class="requirement-text">Turn raw buyer data into actionable insights by surfacing patterns, anomalies, and quality signals for leadership. Build and maintain reporting and monitoring tools for real-time visibility into data health.</p>
+      </div>
+      <div class="card-right">
+        <p class="response-text">Built an <span class="hi">automated breach reporting tool</span> at PIMCO that eliminated manual data extraction, cutting monthly reporting time by <span class="stat">50%</span>. Transformed unstructured depositary email threads into a centralized tracking system with categorized exceptions, reducing resolution time by <span class="stat">40%</span>. SQL-driven anomaly detection is a daily practice, not a project skill — this is core workflow at one of the world's largest asset managers.</p>
+      </div>
+    </div>
 
-      <tr>
-        <td>
-          <div class="row-tag">WEALTH MANAGEMENT FLUENCY</div>
-          General knowledge of the wealth management industry. Comfort with RIA buyer/seller dynamics, institutional acquirer criteria, and financial services data language.
-        </td>
-        <td>
-          <span class="hi">PIMCO</span> — one of the world's largest asset managers — is the current employer. Monitors compliance across institutional portfolios daily and is fluent in financial services regulatory frameworks, portfolio operations, and institutional data standards. At <span class="hi">Newchip</span>, cultivated relationships with <span class="stat">150+ institutional and angel investors</span>, aligning investor thesis with deal stage and sector — directly analogous to Alaris's buyer criteria matching. Finance + Accounting double major, <span class="stat">3.87 GPA</span>, University of Oklahoma.
-        </td>
-      </tr>
+    <div class="card">
+      <div class="card-left">
+        <span class="category-tag">Buyer Data Audit Ownership</span>
+        <p class="requirement-text">Own all buyer data audits end-to-end: scoping, execution, findings, and remediation. Document data definitions, lineage, and ownership standards. Standardize audit workflows to reduce manual effort.</p>
+      </div>
+      <div class="card-right">
+        <p class="response-text">At <span class="hi">Protiviti</span>, led SOX compliance audits end-to-end across <span class="stat">6 client engagements</span> in banking, construction, and media — scoping, fieldwork, findings, and remediation recommendations delivered directly to client finance and operations leadership. Developed the control documentation and process definitions used post-engagement. At PIMCO, owns the quarterly breach audit lifecycle from identification through resolution. Full-cycle ownership is the default mode.</p>
+      </div>
+    </div>
 
-      <tr>
-        <td>
-          <div class="row-tag">INNOVATION &amp; AUTOMATION</div>
-          Identify manual or inefficient data processes and propose automation using AI agents, scripts, or workflow tooling. Collaborate with AI platform engineers to improve pipelines. Support product innovation beyond current capabilities.
-        </td>
-        <td>
-          Currently building <span class="hi">production AI agent pipelines</span> independently — designing signal ingestion, fund data enrichment, and matching workflows using n8n orchestration and Claude Code. This isn't a hobby: it's a functional, deployed system built from scratch. At Newchip, built the entire <span class="hi">HubSpot CRM + Airtable deal pipeline</span> including automated outbound campaigns and investor database of <span class="stat">1,000+ categorized startups</span> that became the team standard. Automation is the default approach, not the last resort.
-        </td>
-      </tr>
+    <div class="card">
+      <div class="card-left">
+        <span class="category-tag">Wealth Management Fluency</span>
+        <p class="requirement-text">General knowledge of the wealth management industry. Comfort with RIA buyer/seller dynamics, institutional acquirer criteria, and financial services data language.</p>
+      </div>
+      <div class="card-right">
+        <p class="response-text"><span class="hi">PIMCO</span> — one of the world's largest asset managers — is the current employer. Monitors compliance across institutional portfolios daily and is fluent in financial services regulatory frameworks, portfolio operations, and institutional data standards. At <span class="hi">Newchip</span>, cultivated relationships with <span class="stat">150+ institutional and angel investors</span>, aligning investor thesis with deal stage and sector — directly analogous to Alaris's buyer criteria matching. Finance + Accounting double major, <span class="stat">3.87 GPA</span>, University of Oklahoma.</p>
+      </div>
+    </div>
 
-      <tr>
-        <td>
-          <div class="row-tag">SYSTEMS &amp; TOOL MASTERY</div>
-          Develop deep mastery of Alaris Lens and AI platform as primary systems of record. Advanced Excel and spreadsheet proficiency: pivot tables, Power Query, XLOOKUP, data modeling.
-        </td>
-        <td>
-          Advanced Excel applied daily across Protiviti audit engagements and PIMCO compliance workflows — complex exception models, financial control matrices, and cross-portfolio tracking. Rapid learner of proprietary platforms: at PIMCO, became the primary operator of the compliance monitoring system; at Newchip, owned the full CRM and pipeline stack with zero prior HubSpot experience. Mastery of new systems is a pattern, not a one-off.
-        </td>
-      </tr>
+    <div class="card">
+      <div class="card-left">
+        <span class="category-tag">Innovation &amp; Automation</span>
+        <p class="requirement-text">Identify manual or inefficient data processes and propose automation using AI agents, scripts, or workflow tooling. Collaborate with AI platform engineers to improve pipelines. Support product innovation beyond current capabilities.</p>
+      </div>
+      <div class="card-right">
+        <p class="response-text">Currently building <span class="hi">production AI agent pipelines</span> independently — designing signal ingestion, fund data enrichment, and matching workflows using n8n orchestration and Claude Code. This isn't a hobby: it's a functional, deployed system built from scratch. At Newchip, built the entire <span class="hi">HubSpot CRM + Airtable deal pipeline</span> including automated outbound campaigns and investor database of <span class="stat">1,000+ categorized startups</span> that became the team standard. Automation is the default approach, not the last resort.</p>
+      </div>
+    </div>
 
-      <tr>
-        <td>
-          <div class="row-tag">INTERNAL SUPPORT &amp; SOPs</div>
-          Support internal users with data quality, workflow, and platform issues. Assist in updating Standard Operating Procedures for Lens and AI systems. Communicate data issues clearly to non-technical stakeholders.
-        </td>
-        <td>
-          At <span class="hi">Protiviti</span>, delivered process documentation, AP/AR workflow redesigns, and control matrices directly used by client finance teams post-engagement — written for non-technical operators, not auditors. At Newchip, built outbound playbooks adopted as the team standard across all associates. At PIMCO, transformed ad-hoc email-based processes into documented, repeatable workflows. Writing SOPs that actually get used is a demonstrated track record.
-        </td>
-      </tr>
+    <div class="card">
+      <div class="card-left">
+        <span class="category-tag">Systems &amp; Tool Mastery</span>
+        <p class="requirement-text">Develop deep mastery of Alaris Lens and AI platform as primary systems of record. Advanced Excel and spreadsheet proficiency: pivot tables, Power Query, XLOOKUP, data modeling.</p>
+      </div>
+      <div class="card-right">
+        <p class="response-text">Advanced Excel applied daily across Protiviti audit engagements and PIMCO compliance workflows — complex exception models, financial control matrices, and cross-portfolio tracking. Rapid learner of proprietary platforms: at PIMCO, became the primary operator of the compliance monitoring system; at Newchip, owned the full CRM and pipeline stack with zero prior HubSpot experience. Mastery of new systems is a pattern, not a one-off.</p>
+      </div>
+    </div>
 
-      <tr>
-        <td>
-          <div class="row-tag">AI &amp; LLM EXPERIENCE <em style="font-family:inherit;font-size:9px;color:var(--text-dim)">(NICE TO HAVE)</em></div>
-          Hands-on experience with AI agents or LLM-based workflows (OpenAI, Anthropic, Google). Familiarity with AI platform implementation. Python or scripting experience for data pipeline automation.
-        </td>
-        <td>
-          <span class="emp">This is not a nice-to-have — it's a core strength.</span> Currently operating <span class="hi">Claude Code</span> (Anthropic) as a primary development environment and building multi-agent orchestration pipelines with <span class="hi">n8n</span>. Has direct, production-grade experience designing agentic workflows, prompt engineering, debugging LLM outputs, and managing data pipelines powered by AI. This is the rarest qualification on this job description — and arguably the one most critical to Alaris's roadmap. Millet brings it today, not after a ramp.
-        </td>
-      </tr>
+    <div class="card">
+      <div class="card-left">
+        <span class="category-tag">Internal Support &amp; SOPs</span>
+        <p class="requirement-text">Support internal users with data quality, workflow, and platform issues. Assist in updating Standard Operating Procedures for Lens and AI systems. Communicate data issues clearly to non-technical stakeholders.</p>
+      </div>
+      <div class="card-right">
+        <p class="response-text">At <span class="hi">Protiviti</span>, delivered process documentation, AP/AR workflow redesigns, and control matrices directly used by client finance teams post-engagement — written for non-technical operators, not auditors. At Newchip, built outbound playbooks adopted as the team standard across all associates. At PIMCO, transformed ad-hoc email-based processes into documented, repeatable workflows. Writing SOPs that actually get used is a demonstrated track record.</p>
+      </div>
+    </div>
 
-    </tbody>
-  </table>
+    <div class="card">
+      <div class="card-left">
+        <span class="category-tag">AI &amp; LLM Experience &nbsp;<span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-muted);font-weight:400;letter-spacing:0.05em">(Nice to Have)</span></span>
+        <p class="requirement-text">Hands-on experience with AI agents or LLM-based workflows (OpenAI, Anthropic, Google). Familiarity with AI platform implementation. Python or scripting experience for data pipeline automation.</p>
+      </div>
+      <div class="card-right">
+        <p class="response-text"><span class="emp">This is not a nice-to-have — it's a core strength.</span> Currently operating <span class="hi">Claude Code</span> (Anthropic) as a primary development environment and building multi-agent orchestration pipelines with <span class="hi">n8n</span>. Has direct, production-grade experience designing agentic workflows, prompt engineering, debugging LLM outputs, and managing data pipelines powered by AI. This is the rarest qualification on this job description — and arguably the one most critical to Alaris's roadmap. Millet brings it today, not after a ramp.</p>
+      </div>
+    </div>
+
+  </div>
 
   <!-- FOOTER -->
   <footer>
-    <div class="corner tl"></div>
-    <div class="corner tr"></div>
-    <div class="corner bl"></div>
-    <div class="corner br"></div>
-    <div class="footer-headline">READY TO OWN DATA INTEGRITY AT ALARIS LENS<span class="cursor"></span></div>
+    <div class="footer-eyebrow">Closing Statement</div>
+    <div class="footer-headline">Ready to own data integrity at Alaris Lens.</div>
     <div class="footer-sub">Finance background. AI-native toolkit. Zero tolerance for bad data. &mdash; Millet Gilmore</div>
   </footer>
 
